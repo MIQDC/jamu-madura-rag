@@ -7,3 +7,6 @@ numpy==2.2.6
 requests==2.34.2
 python-dotenv==1.2.4
 gunicorn==23.0.0
+
+gr?adio
+gradio
