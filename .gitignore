@@ -1,0 +1,44 @@
+.env
+.env.*
+!.env.example
+
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+*.log
+.DS_Store
+Thumbs.db
+
+# Research experiments and backup files
+*.bak
+benchmark_hybrid.py
+diagnose_query3_28.py
+diagnose_query5.py
+evaluate_retrieval.py
+experiment_hybrid.py
+integrate_hybrid.py
+validate_active_hybrid.py
+test_api.py
+test_assets.py
+test_web_30.py
+
+# Evaluation artifacts not needed by the web app
+data/active_hybrid_validation_30.csv
+data/api_ask_test_5_queries.csv
+data/benchmark_hybrid_30.csv
+data/df_ground_truth_final_v2.csv
+data/df_retrieval_final_v2.csv
+data/hybrid_experiment_30.csv
+data/retrieval_metrics_web_30.csv
+data/web_test_30_query.csv
+data/web_test_30_query_hybrid_20261013_222045.csv
+data/save_api_test_results.py
+
+# All backup variants
+*.bak*

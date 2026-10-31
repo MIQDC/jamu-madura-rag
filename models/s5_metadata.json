@@ -1,0 +1,17 @@
+{
+  "scenario": "S5",
+  "lstm_units_per_direction": 128,
+  "dropout": 0.2,
+  "embedding_dim": 100,
+  "max_len": 42,
+  "learning_rate": 0.001,
+  "batch_size": 16,
+  "max_epochs": 30,
+  "best_epoch": 3,
+  "best_validation_loss": 0.028342,
+  "validation_accuracy": 0.99059,
+  "validation_macro_f1": 0.986165,
+  "total_parameters": 349881,
+  "model_file": "model_bilstm_s5.keras",
+  "config_file": "query_model_config_s5.pkl"
+}

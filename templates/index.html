@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Jamu Madura - Tanya Jawab & Rekomendasi
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    🌿
+                </div>
+
+                <div>
+                    <h1>
+                        Jamu Madura
+                    </h1>
+
+                    <p>
+                        Sistem Tanya Jawab & Rekomendasi
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="container">
+
+        <!-- INTRO -->
+
+        <section class="hero">
+
+            <h2>
+                Temukan Informasi Jamu Tradisional Madura
+            </h2>
+
+            <p>
+                Masukkan pertanyaan Anda mengenai kandungan,
+                khasiat, atau kebutuhan jamu. Sistem akan
+                mencari informasi dari knowledge base penelitian.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             QUERY FORM
+        ================================================== -->
+
+        <section class="query-card">
+
+            <form id="queryForm">
+
+                <label for="queryInput">
+                    Pertanyaan
+                </label>
+
+                <textarea
+                    id="queryInput"
+                    name="query"
+                    rows="4"
+                    maxlength="500"
+                    placeholder="Contoh: jamu apa yang mengandung jahe untuk menambah nafsu makan"
+                    required
+                ></textarea>
+
+                <div class="form-footer">
+
+                    <span id="charCounter">
+                        0 / 500
+                    </span>
+
+                    <button
+                        type="submit"
+                        id="askButton"
+                    >
+                        <span id="buttonText">
+                            Tanya Sekarang
+                        </span>
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- =================================================
+             LOADING
+        ================================================== -->
+
+        <section
+            id="loading"
+            class="loading hidden"
+        >
+
+            <div class="spinner"></div>
+
+            <p>
+                Sistem sedang memproses pertanyaan...
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             ERROR
+        ================================================== -->
+
+        <section
+            id="errorBox"
+            class="error-box hidden"
+        >
+            <strong>
+                Terjadi kesalahan
+            </strong>
+
+            <p id="errorMessage"></p>
+        </section>
+
+
+        <!-- =================================================
+             RESULT
+        ================================================== -->
+
+        <section
+            id="resultSection"
+            class="result-section hidden"
+        >
+
+            <!-- =============================================
+                 ENTITIES
+            ============================================== -->
+
+            <div class="section-title">
+
+                <span class="section-number">
+                    01
+                </span>
+
+                <div>
+
+                    <h3>
+                        Entitas yang Dikenali
+                    </h3>
+
+                    <p>
+                        Entitas yang diekstraksi oleh model Bi-LSTM
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="entity-grid">
+
+                <!-- BAHAN -->
+
+                <div class="entity-card">
+
+                    <div class="entity-label">
+                        BAHAN / KANDUNGAN
+                    </div>
+
+                    <div
+                        id="bahanContainer"
+                        class="entity-content"
+                    >
+                        -
+                    </div>
+
+                </div>
+
+
+                <!-- KHASIAT -->
+
+                <div class="entity-card">
+
+                    <div class="entity-label">
+                        KHASIAT
+                    </div>
+
+                    <div
+                        id="khasiatContainer"
+                        class="entity-content"
+                    >
+                        -
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 ANSWER
+            ============================================== -->
+
+            <div class="section-title answer-title">
+
+                <span class="section-number">
+                    02
+                </span>
+
+                <div>
+
+                    <h3>
+                        Jawaban RAG
+                    </h3>
+
+                    <p>
+                        Jawaban berdasarkan context knowledge base
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="answer-card">
+
+                <div
+                    id="answerContent"
+                    class="answer-content"
+                ></div>
+
+            </div>
+
+
+            <!-- =============================================
+                 RECOMMENDATIONS
+            ============================================== -->
+
+            <div class="section-title recommendation-title">
+
+                <span class="section-number">
+                    03
+                </span>
+
+                <div>
+
+                    <h3>
+                        Rekomendasi Jamu
+                    </h3>
+
+                    <p>
+                        Hasil retrieval dan entity-aware reranking
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="recommendationsContainer"
+                class="recommendations-grid"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <p>
+            Sistem Tanya Jawab dan Rekomendasi Jamu Tradisional
+            Madura berbasis Retrieval-Augmented Generation
+        </p>
+
+        <p>
+            Word2Vec • Bi-LSTM • FAISS • Gemini
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        src="{{ url_for('static', filename='js/app.js') }}"
+    ></script>
+
+</body>
+</html>
